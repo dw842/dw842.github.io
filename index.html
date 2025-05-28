@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Random Comic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body x-data="comicApp">
+<header>
+    <h1 x-text="title">Random Comic</h1>
+    <button class="refresh-button" @click="refreshComic">Generate New Comic</button>
+</header>
+
+<div class="main-wrapper">
+    <div class="comic-container">
+        <div class="comic-grid" id="comicGrid">
+            <template x-for="(src, index) in selectedImages" :key="index">
+                <img :src="'img/' + src" alt="Comic panel">
+            </template>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Parody Disclaimer</h2>
+        <p>This site is a parody. It randomly assembles four comic panels from Pizzacake to create new, nonsensical comics for humorous and satirical effect.</p>
+        <p>All original artwork remains the property of Pizzacake. This use is made under the fair use doctrine as established in Section 107 of the U.S. Copyright Act, which permits limited use of copyrighted material without permission for purposes such as parody, commentary, or criticism.</p>
+        <p>No endorsement, affiliation, or commercial use is intended.</p>
+        <p>If you like the real comic, support it here: <a href="https://pizzacakecomic.com/" rel="nofollow">Pizzacakecomic.com</a></p>
+    </div>
+</div>
+
+<div class="footer-wrapper">
+    <div class="pi-symbol" @click="enableDarkMode">&#960;</div>
+</div>
+</body>
+</html>
